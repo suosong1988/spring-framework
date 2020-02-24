@@ -74,6 +74,9 @@ public class ComponentScanBeanDefinitionParser implements BeanDefinitionParser {
 
 	private static final String FILTER_EXPRESSION_ATTRIBUTE = "expression";
 
+	public ComponentScanBeanDefinitionParser() {
+		System.out.println("松哥为了打断点用的，为了知道什么时候new出来的");
+	}
 
 	@Override
 	public BeanDefinition parse(Element element, ParserContext parserContext) {

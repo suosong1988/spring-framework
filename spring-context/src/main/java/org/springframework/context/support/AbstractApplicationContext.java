@@ -507,20 +507,20 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
 		synchronized (this.startupShutdownMonitor) {
-			// Prepare this context for refreshing.
+			// Prepare this context for refreshing. 目前不知道干啥的 todo
 			prepareRefresh();
 
 			// Tell the subclass to refresh the internal bean factory.
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
-			// Prepare the bean factory for use in this context.
+			// Prepare the bean factory for use in this context. 加几个后置处理器，注册几个关于环境的单实例bean
 			prepareBeanFactory(beanFactory);
 
 			try {
-				// Allows post-processing of the bean factory in context subclasses.
+				// Allows post-processing of the bean factory in context subclasses. 空方法，看样子是处理factory的，上一步已经处理了一波，怕用户还有自己的需求，就留个口子。但是对于spring使用者来说，很少会去继承这个类，也就是说，一般来说，这个方法就是空方法
 				postProcessBeanFactory(beanFactory);
 
-				// Invoke factory processors registered as beans in the context.
+				// Invoke factory processors registered as beans in the context.  虽然在这个过程中没有注册factory processors ，但是在前面的上下文中，很可能已经有factory processors 注册了。这里只是走一个通用的流程，如果有，就执行。 在大多数情况下 ConfigurationClassPostProcessor 是会在上下文中被注册的。
 				invokeBeanFactoryPostProcessors(beanFactory);
 
 				// Register bean processors that intercept bean creation.

@@ -21,6 +21,8 @@ import java.util.Map;
 import org.springframework.util.MultiValueMap;
 
 /**
+ * 提供根据注解访问注解内容的access
+ *
  * Defines access to the annotations of a specific type ({@link AnnotationMetadata class}
  * or {@link MethodMetadata method}), in a form that does not necessarily require the
  * class-loading.
