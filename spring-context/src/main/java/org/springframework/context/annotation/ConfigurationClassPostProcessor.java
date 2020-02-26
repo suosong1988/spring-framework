@@ -67,6 +67,13 @@ import org.springframework.util.ClassUtils;
 import static org.springframework.context.annotation.AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR;
 
 /**
+ * 下面的注释说的很明白
+ * 1，<context:component-scan/>
+ * 2，@Configuration 或者相当于有这个注解功能
+ * 注解也好，xml配置也好，真正干活的，就是这个类了。
+ * 这个是BeanFactoryPostProcessor , 在spring启动的大模版中，有专门执行这个的地方。
+ *
+ *
  * {@link BeanFactoryPostProcessor} used for bootstrapping processing of
  * {@link Configuration @Configuration} classes.
  *
@@ -210,6 +217,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 
 
 	/**
+	 * 从配置类中搞出更多的bean definition,并且注册。
 	 * Derive further bean definitions from the configuration classes in the registry.
 	 */
 	@Override

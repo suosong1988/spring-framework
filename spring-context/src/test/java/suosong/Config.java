@@ -1,5 +1,6 @@
 package suosong;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,5 +10,10 @@ import org.springframework.context.annotation.Configuration;
 //@Configuration
 @ComponentScan(value = {"suosong"})
 public class Config {
+
+    @Bean
+    private Cat cat(){
+        return new Cat("tom");
+    }
 
 }

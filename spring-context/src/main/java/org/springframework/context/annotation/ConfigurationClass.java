@@ -34,7 +34,7 @@ import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
-/**
+/** 讲配置类的内容抽象出一个模型。
  * Represents a user-defined {@link Configuration @Configuration} class.
  * Includes a set of {@link Bean} methods, including all such methods
  * defined in the ancestry of the class, in a 'flattened-out' manner.

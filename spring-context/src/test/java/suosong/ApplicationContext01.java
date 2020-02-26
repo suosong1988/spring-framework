@@ -14,5 +14,7 @@ public class ApplicationContext01 {
         ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         Dog dog = (Dog) context.getBean("dog");
         System.out.println(dog);
+        Cat cat = context.getBean(Cat.class);
+        System.out.println(cat);
     }
 }
